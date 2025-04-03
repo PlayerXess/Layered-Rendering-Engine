@@ -10,8 +10,8 @@ import java.io.File;
 public class PLRE implements ModInitializer {
 	public static final String MOD_ID = "plre";
 
-	public static String plreTexturesDir = "plre/textures/";
-	public static String plreModelsDir = "plre/models/";
+	public static String plreTexturesDir = "src/main/resources/assets/plre/textures/";
+	public static String plreModelsDir = "src/main/resources/assets/plre/models/";
 
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.

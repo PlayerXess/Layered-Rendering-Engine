@@ -19,7 +19,7 @@ public class TextureEngine {
 
     public static void createTexture(String[] texturePaths) throws IOException {
 
-        File file = new File("plre/" + TextureType + "/item", ModID + "-" + TextureName + ".png");
+        File file = new File("src/main/resources/assets/plre/" + TextureType + "/item", ModID + "-" + TextureName + ".png");
 
         if (file.exists()) {
             // The file exists
@@ -31,6 +31,6 @@ public class TextureEngine {
     }
 
     private static void loadTexture() throws IOException {
-        JSONGen.genItemJsonFile("plre/" + TextureType, ModID + "-" + TextureName + ".json", TexturePNGName);
+        JSONGen.genItemJsonFile("src/main/resources/assets/plre/" + TextureType, ModID + "-" + TextureName + ".json", TexturePNGName);
     }
 }
