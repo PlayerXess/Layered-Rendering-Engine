@@ -30,7 +30,7 @@ public class TextureEngine {
 
     }
 
-    private static void loadTexture() {
+    private static void loadTexture() throws IOException {
         JSONGen.genItemJsonFile("plre/" + TextureType, ModID + "-" + TextureName + ".json", TexturePNGName);
     }
 }
