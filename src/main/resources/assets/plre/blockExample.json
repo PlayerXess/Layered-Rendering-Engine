@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "plre:block/textureName",
+    "down": "plre:block/textureName",
+    "north": "plre:block/textureName",
+    "east": "plre:block/textureName",
+    "south": "plre:block/textureName",
+    "west": "plre:block/textureName",
+    "particle": "plre:block/textureName"
+  }
+}

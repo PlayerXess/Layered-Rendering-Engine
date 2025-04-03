@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "plre",
+	"version": "${version}",
+	"name": "PlayerXess' Layered Rendering Engine",
+	"description": "A Rendering API That Allows Multiple Textures To Be Overlayed On Each Other Using NBT Data",
+	"authors": [
+		"PlayerXess"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/plre/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "net.playerxess.plre.PLRE"
+		],
+		"client": [
+			"net.playerxess.plre.PLREClient"
+		],
+		"fabric-datagen": [
+			"net.playerxess.plre.PLREDataGenerator"
+		]
+	},
+	"mixins": [
+		"plre.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+
+	}
+}
