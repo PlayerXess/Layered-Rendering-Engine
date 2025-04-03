@@ -31,6 +31,6 @@ public class TextureEngine {
     }
 
     private static void loadTexture() {
-
+        JSONGen.genItemJsonFile("plre/" + TextureType, ModID + "-" + TextureName + ".json", TexturePNGName);
     }
 }

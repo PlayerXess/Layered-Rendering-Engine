@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 public class JSONGen {
 
-    private static void genItemJsonFile(String directory, String filename, String texturePNGName) throws IOException {
+    public static void genItemJsonFile(String directory, String filename, String texturePNGName) throws IOException {
         String exampleJsonFile = "src/main/resources/assets/plre/itemExample.json";
         String jsonContent = new String(Files.readAllBytes(Paths.get(exampleJsonFile)));
 
