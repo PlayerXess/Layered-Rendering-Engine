@@ -1,36 +1,33 @@
 package net.playerxess.plre.rendering;
 
-import java.io.File;
-import java.io.IOException;
+import net.playerxess.plre.PLRE;
 
 public class TextureEngine {
 
-    private static String ModID;
-    private static String TextureName;
-    private static String TexturePNGName;
-    private static String TexturePath;
-    private static String TextureType;
+    private final String[] texturePaths;
+    private final String modId;
+    private final String itemName;
 
-    public TextureEngine(String MOD_ID, String TEXTURE_NAME, String TEXTURE_TYPE) {
-        ModID = MOD_ID;
-        TextureName = TEXTURE_NAME;
-        TextureType = TEXTURE_TYPE;
+    public TextureEngine(String[] texturePaths, String modId, String itemName) {
+        this.texturePaths = texturePaths;
+        this.modId = modId;
+        this.itemName = itemName;
     }
 
-    public static void createTexture(String[] texturePaths) throws IOException {
-
-        File file = new File("src/main/resources/assets/plre/" + TextureType + "/item", ModID + "-" + TextureName + ".png");
-
-        if (file.exists()) {
-            // The file exists
-        } else {
-            // The file does not exist
-            TexturePNGName = ImageGen.generateImage(texturePaths, TextureName, ModID);
-        }
-
+    public String[] getTexturePaths() {
+        return texturePaths;
     }
 
-    private static void loadTexture() throws IOException {
-        JSONGen.genItemJsonFile("src/main/resources/assets/plre/" + TextureType, ModID + "-" + TextureName + ".json", TexturePNGName);
+    public String getModId() {
+        return modId;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public static void initializeTextureEngine () {
+        PLRE.LOGGER.info("Initializing PLRE");
+        TextureGenerator.initializeGenerator();
     }
 }

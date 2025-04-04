@@ -5,13 +5,12 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.playerxess.plre.rendering.TextureEngine;
+
 import java.io.File;
 
 public class PLRE implements ModInitializer {
 	public static final String MOD_ID = "plre";
-
-	public static String plreTexturesDir = "src/main/resources/assets/plre/textures/";
-	public static String plreModelsDir = "src/main/resources/assets/plre/models/";
 
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -26,5 +25,6 @@ public class PLRE implements ModInitializer {
 
 		LOGGER.info("Hello From PlayerXess' Layered Rendering Engine!");
 
+		TextureEngine.initializeTextureEngine();
 	}
 }
