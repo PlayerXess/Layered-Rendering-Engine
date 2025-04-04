@@ -2,19 +2,23 @@ package net.playerxess.plre.rendering;
 
 import net.playerxess.plre.PLRE;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TextureEngine {
 
-    private final String[] texturePaths;
+    private final List<String> texturePaths;
     private final String modId;
     private final String itemName;
 
-    public TextureEngine(String[] texturePaths, String modId, String itemName) {
-        this.texturePaths = texturePaths;
+    public TextureEngine(List<String> initialTextures, String modId, String itemName) {
+        // Initialize with a copy of the provided textures
+        this.texturePaths = new ArrayList<>(initialTextures);
         this.modId = modId;
         this.itemName = itemName;
     }
 
-    public String[] getTexturePaths() {
+    public List<String> getTexturePaths() {
         return texturePaths;
     }
 
@@ -26,7 +30,15 @@ public class TextureEngine {
         return itemName;
     }
 
-    public static void initializeTextureEngine () {
+    // Method to insert a texture at a specific index without overwriting
+    public void addTextureAt(int index, String texturePath) {
+        if (index < 0 || index > texturePaths.size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        texturePaths.add(index, texturePath);
+    }
+
+    public static void initializeTextureEngine() {
         PLRE.LOGGER.info("Initializing PLRE");
         TextureGenerator.initializeGenerator();
     }

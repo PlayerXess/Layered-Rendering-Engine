@@ -13,6 +13,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class TextureGenerator {
 
@@ -25,29 +26,24 @@ public class TextureGenerator {
      * @return The Identifier for the generated texture or null if an error occurred.
      */
     public static Identifier generateCombinedTexture(TextureEngine itemTexture) {
-        String[] textures = itemTexture.getTexturePaths();
+        List<String> textures = itemTexture.getTexturePaths();
         BufferedImage baseImage = null;
 
         try {
             // Loop through each texture path
             for (String texturePath : textures) {
-                // Load the texture image (adjust the base path as needed)
                 File textureFile = new File("mods/" + itemTexture.getModId() + "/textures/" + texturePath);
                 BufferedImage img = ImageIO.read(textureFile);
-
                 if (img == null) {
                     System.err.println("Failed to load texture: " + textureFile.getAbsolutePath());
                     continue;
                 }
-
-                // If this is the first image, initialize the base image
                 if (baseImage == null) {
                     baseImage = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
                     Graphics2D g2d = baseImage.createGraphics();
                     g2d.drawImage(img, 0, 0, null);
                     g2d.dispose();
                 } else {
-                    // Overlay subsequent images on top of the base image
                     Graphics2D g2d = baseImage.createGraphics();
                     g2d.drawImage(img, 0, 0, null);
                     g2d.dispose();
